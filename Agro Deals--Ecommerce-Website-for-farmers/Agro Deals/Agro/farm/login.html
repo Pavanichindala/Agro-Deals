@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Agro Deals website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="button"],
+        input[type="reset"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="button"],
+        input[type="reset"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="button"]:hover,
+        input[type="reset"]:hover {
+            background-color: #0056b3;
+        }
+
+        .mandatory {
+            color: red;
+        }
+    </style>
+    <script>
+        function validate() {
+            var uname = document.forms["loginForm"]["username"].value;
+            var pwd = document.forms["loginForm"]["password"].value;
+
+            // Username validation
+            if (uname.trim() === "") {
+                alert("Please Enter Username");
+                document.forms["loginForm"]["username"].focus();
+                return false;
+            }
+            if (uname.length < 8) {
+                alert("Please enter Username not less than 8 characters");
+                document.forms["loginForm"]["username"].focus();
+                return false;
+            }
+
+            // Password validation
+            if (pwd.trim() === "") {
+                alert("Please Enter Password");
+                document.forms["loginForm"]["password"].focus();
+                return false;
+            }
+            if (pwd.length < 6) {
+                alert("Please enter Password not less than 6 characters");
+                document.forms["loginForm"]["password"].focus();
+                return false;
+            }
+
+            alert("Login Successful");
+            window.location.href = "index.html"; // Redirect to index.html
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h3>LOGIN FORM</h3>
+        <form id="loginForm" action="index.html" method="POST">
+            <table>
+                <tr>
+                    <td>User Name:<span class="mandatory">*</span></td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td>Password:<span class="mandatory">*</span></td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" value="SUBMIT" onclick="return validate()">
+                        <input type="reset" value="RESET">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><span class="mandatory">* fields are mandatory</span></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
